@@ -41,10 +41,14 @@ int	is_prime(int prime)
 	int	i;
 	int	sq;
 
+	i = 2;
 	if (prime <= 1)
 		return (0);
 	sq = (int)sqrt(prime);
-	for (i = 2; (i <= sq) && (prime % i != 0); i++);
+	while ((i <= sq) && (prime % i != 0))
+	{
+		i++;
+	}
 	return (i > sq);
 }
 

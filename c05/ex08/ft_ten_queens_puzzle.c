@@ -1,6 +1,5 @@
 #include <stdbool.h>
 #include <unistd.h>
-#include <stdio.h>
 
 #define BOARD_SIZE 10
 
@@ -27,31 +26,6 @@ bool	is_queen_at_risk(int board[][BOARD_SIZE], int at_x, int at_y)
 		x++;
 	}
 	return (false);
-}
-
-void	dump_board(int board[][BOARD_SIZE], int c_x, int c_y)
-{
-	int		i;
-	int		j;
-	char	c;
-
-	i = 0;
-	while (i < BOARD_SIZE)
-	{
-		j = 0;
-		while (j < BOARD_SIZE)
-		{
-			if (c_y == i && c_x == j)
-				c = board[i][j] ? 'O' : 'x';
-			else
-				c = board[i][j] ? 'o' : '-';
-			printf("%c ", c);
-			j++;
-		}
-		i++;
-		printf("\n");
-	}
-	printf("\n");
 }
 
 void	clear_column(int board[][BOARD_SIZE], int x)
@@ -104,8 +78,6 @@ bool	recursive_find(int board[][BOARD_SIZE], int x, int *soluce)
 			{
 				*soluce += 1;
 				print_queen_position(board);
-				dump_board(board, x, y);
-				// clear_column(board, x);
 			}
 			board[y][x] = false;
 		}
@@ -125,11 +97,5 @@ int		ft_ten_queens_puzzle(void)
 	while (column++ < BOARD_SIZE)
 		clear_column(board, column - 1);
 	recursive_find(board, 0, &soluce);
-	printf("found %d\n", soluce);
 	return (soluce);
-}
-
-int		main(void)
-{
-	ft_ten_queens_puzzle();
 }

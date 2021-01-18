@@ -3,7 +3,7 @@
 
 void	ft_putchar(char c)
 {
-	write(1,&c,1);
+	write(1, &c, 1);
 }
 
 void	ft_write_comb(char a, char b, bool last)
@@ -13,7 +13,6 @@ void	ft_write_comb(char a, char b, bool last)
 	ft_putchar(' ');
 	ft_putchar(48 + b / 10);
 	ft_putchar(48 + b % 10);
-
 	if (last)
 	{
 		ft_putchar(',');
@@ -23,25 +22,25 @@ void	ft_write_comb(char a, char b, bool last)
 
 void	ft_print_comb2(void)
 {
-	int a,b;
-	bool last;
+	int		a;
+	int		b;
+	bool	last;
 
 	a = 0;
-
 	while (a <= 99)
 	{
 		b = a + 1;
 		while (b <= 99)
 		{
 			last = !(a == 99 && b == 99);
-			ft_write_comb(a,b,last);
+			ft_write_comb(a, b, last);
 			b++;
 		}
 		a++;
 	}
 }
 
-int	main(void)
+int		main(void)
 {
 	ft_print_comb2();
 }

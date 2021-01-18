@@ -2,7 +2,7 @@
 
 void	ft_putchar(char c)
 {
-	write(1,&c,1);
+	write(1, &c, 1);
 }
 
 void	ft_print_numbers(void)
@@ -10,7 +10,6 @@ void	ft_print_numbers(void)
 	char num;
 
 	num = '0';
-
 	while (num <= '9')
 	{
 		ft_putchar(num);
@@ -18,7 +17,7 @@ void	ft_print_numbers(void)
 	}
 }
 
-int	main(void)
+int		main(void)
 {
 	ft_print_numbers();
 }
